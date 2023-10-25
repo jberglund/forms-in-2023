@@ -1,0 +1,19 @@
+---
+  // oninput
+  // stepUp är * argument
+  // är output live-aria?
+  // name="amount" är scopat till formen den ligger i.
+  // valueAsNumber
+---
+<fieldset 
+    oninput="result.value=amount.valueAsNumber"
+    onclick="result.value=amount.valueAsNumber"
+  >
+  <legend>Amount</legend>
+    <input  value="50"  name="amount" type="range" step="1" min="0" max="100">
+    <button type="button" onclick="amount.stepDown()" > -1 </button>
+    <button type="button" onclick="amount.stepUp()"> +1 </button>
+    <button type="button" onclick="amount.stepDown(10)" > -10 </button>
+    <button type="button" onclick="amount.stepUp(10)"> +10 </button>
+    <output for="amount" name="result">50</output>
+</fieldset>

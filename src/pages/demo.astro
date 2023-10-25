@@ -1,0 +1,109 @@
+---
+  import InputDate from '../components/inputs/InputDate.astro';
+  import InputRange from '../components/inputs/InputRange.astro';
+  import InputValidation from '../components/inputs/InputValidation.astro';
+---
+<div class="container">
+<form>
+  
+
+ <!--  <label for="">
+    <span>Datum</span>
+    <input id="date" type="date" value="" />
+    <small>Kanske säga något om locale</small>
+  </label>
+  
+  <label for="">
+    <span>E-post</span>
+    <input placeholder="" required type="email" />
+  </label>
+  
+  <label for="">
+    <span>Okappat Antal</span>
+    <input required placeholder="" type="number" />
+  </label>
+  
+  <label for="">
+    <span>Kappat Antal</span>
+    <input min="5" max="20" value="10" step="5" type="number" />
+  </label> -->
+  <InputValidation />
+  <InputRange />
+
+  <InputDate />
+
+  
+  <fieldset>
+  <label for="pet-select">Choose a pet:</label>
+
+<select name="pets" id="pet-select">
+  <option value="dog">Dog</option>
+  <option value="cat">Cat</option>
+  <option value="hamster">Hamster</option>
+  <option value="parrot">Parrot</option>
+  <option value="spider">Spider</option>
+  <option value="goldfish">Goldfish</option>
+</select>
+</fieldset>
+  
+  
+
+  <div>
+    <label for="fuel"></label>
+    form inputs valid?
+  <meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="50">at 50/100</meter>
+  </div>
+  
+  <div>
+    <label for="what-time">Vilken tid?
+      <input id="what-time" type="time" value="new Date().toTimeString().slice(0, 6)" />
+    </label>
+  </div>
+  
+  <div>
+    <label for="subset-timelist">Vilken tid? (med datalist)
+      <input id="subset-timelist" type="time" list="popularHours" />
+      <datalist id="popularHours">
+        <option value="12:00"></option>
+        <option value="13:00"></option>
+        <option value="14:00"></option>
+      </datalist>
+    </label>
+  </div>
+  
+  <fieldset>
+    <legend>Select Multiple</legend>
+  <label>
+    Please choose one or more pets:
+    <select name="pets" multiple size="10">
+      <optgroup label="4-legged pets">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster" disabled>Hamster</option>
+      </optgroup>
+      <optgroup label="Flying pets">
+        <option value="parrot">Parrot</option>
+        <option value="macaw">Macaw</option>
+        <option value="albatross">Albatross</option>
+      </optgroup>
+    </select>
+  </label>
+  </fieldset>
+</form>
+
+
+
+
+
+
+<div>
+  <h4>maybe pile</h4>
+<button popovertarget="my-popover">Open Popover</button>
+<div popover id="my-popover">Greetings, one and all!</div>
+  
+  <ul>
+    <li>:user-valid</li>
+  </ul>
+</div>
+
+</div>

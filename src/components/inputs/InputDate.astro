@@ -1,0 +1,30 @@
+---
+
+---
+<fieldset>
+ <label for="datepicker">
+    <span>Datum</span>
+    <input name="datepicker" type="date"/>
+    <button type="button" onclick="datepicker.showPicker()">Open datepicker</button>
+    <button type="button" onclick="datepicker.stepUp()">+ 1 day</button>
+    <button type="button" onclick="datepicker.stepDown()">- 1 day</button>
+    <button type="button" onclick="datepicker.stepUp(7)">+ 1 week</button>
+    <button type="button" onclick="datepicker.stepDown(7)">- 1 week</button>
+  </label>
+</fieldset>
+
+<script>
+/*   
+  const datepicker = document.querySelector('input[name="datepicker"]');
+  const current= new Date();
+  const currentYear = current.getFullYear();
+  const currentMonth = String(current.getMonth() + 1).padStart(2, '0');
+  const currentDay = String(current.getDate()).padStart(2, '0');
+  const formattedDate = `${currentYear}-${currentMonth}-${currentDay}`;
+
+  datepicker.value = formattedDate;
+ */
+
+  // or you know...
+  datepicker.valueAsDate = new Date(); 
+</script>

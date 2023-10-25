@@ -1,0 +1,28 @@
+---
+
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity
+  // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+  const inputID = "lol";
+---
+
+<input id={inputID} type="text"/>
+<button type="button">Validate</button>
+
+<script define:vars={{inputID}}>
+  function validate(inputID) {
+  const input = document.getElementById(inputID);
+  const validityState = input.validity;
+
+  if (validityState.valueMissing) {
+    input.setCustomValidity("You gotta fill this out, yo!");
+  } else if (validityState.rangeUnderflow) {
+    input.setCustomValidity("We need a higher number!");
+  } else if (validityState.rangeOverflow) {
+    input.setCustomValidity("Thats too high!");
+  } else {
+    input.setCustomValidity("");
+  }
+
+  input.reportValidity();
+}
+</script>
