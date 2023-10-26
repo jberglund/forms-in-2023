@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+/**
+ * * Notera att första input får autofokus!
+ * * och att cancel inte har någon event
+ */
+---
+
+<Layout title="Dialog">
+  <dialog>
+    <form method="dialog" class="stack">
+      <div class="stack">
+        <label for="boop">
+          <small>What is even real?</small>
+        </label>
+        <input id="boop" name="boop" type="text" required />
+      </div>
+
+      <div class="stack">
+        <label for="animal">
+          <small>Favorite animal</small>
+        </label>
+        <select id="animal">
+          <option value="default">Choose</option>
+          <option>Brine shrimp</option>
+          <option>Red panda</option>
+          <option>Spider monkey</option>
+        </select>
+      </div>
+      <div class="button-row">
+        <button formnovalidate formmethod="dialog">Cancel</button>
+        <button type="reset">Reset</button>
+        <button type="submit" value="default">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="the-great-button-centerererer">
+    <button id="open">Show the dialog</button>
+  </div>
+</Layout>
+
+<style>
+  .the-great-button-centerererer {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    background-color: #8bc6ec;
+    background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  }
+  dialog::backdrop {
+    backdrop-filter: blur(2px);
+    opacity: 0.5;
+  }
+</style>
+<script is:inline>
+const openButton = document.querySelector("#open");
+const dialog = document.querySelector("dialog");
+
+openButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+</script>

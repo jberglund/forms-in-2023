@@ -1,0 +1,82 @@
+---
+import InputDate from "../../components/inputs/InputDate.astro";
+import InputRange from "../../components/inputs/InputRange.astro";
+import Layout from "../../layouts/Layout.astro";
+
+/**
+ * ! Labels är gratis UX
+ * ! Vad händer när man submittar med fel?
+ * * Olika typer av enkel validering:
+ * * required, maxlength, minlength
+ * * min, max, step, pattern
+ */
+---
+
+<Layout title="Inputs!">
+  <form class="stack">
+    <fieldset class="stack">
+      <div class="stack">
+        <label for="user">
+          <small>User</small>
+        </label>
+        <input
+          placeholder=""
+          autofocus
+          id="user"
+          name="user"
+          type="text"
+          minlength="3"
+          maxlength="16"
+          required
+        />
+      </div>
+
+      <div class="stack">
+        <label for="pin">
+          <small>PIN - exakt 4 siffor</small>
+        </label>
+        <input placeholder="" id="pin" name="pin" type="password" pattern="[0-9]{4}" required />
+      </div>
+    </fieldset>
+    <fieldset>
+      <label for="dinoselect">Choose a dinosaur:</label>
+      <select id="dinoselect">
+        <optgroup label="Theropods">
+          <option>Tyrannosaurus</option>
+          <option>Velociraptor</option>
+          <option>Deinonychus</option>
+        </optgroup>
+        <optgroup label="Sauropods">
+          <option>Diplodocus</option>
+          <option>Saltasaurus</option>
+          <option>Apatosaurus</option>
+        </optgroup>
+      </select>
+    </fieldset>
+
+    <InputDate />
+    <InputRange />
+    <div class="button-row">
+      <button type="submit">Go!</button>
+      <button type="reset">Reset</button>
+    </div>
+  </form>
+</Layout>
+
+<style>
+  form {
+    max-width: 600px;
+    margin-inline: auto;
+    margin-block: 3rem;
+    display: grid;
+    gap: var(--spacing-xs);
+  }
+
+  input:valid:focus {
+    outline-color: green;
+  }
+
+  /* input:not(:placeholder-shown):invalid {
+    border-color: red;
+  } */
+</style>

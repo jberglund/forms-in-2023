@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+/**
+ * ? ANATOMIN AV EN FORM
+ * * action: URI, annars samma den brukern är på.
+ * * method: get, post, dialog
+ * * input(s)
+ * * submit button (utan eller med type="submit")
+ */
+---
+
+<Layout title="Input">
+  <form id="formy" action="" method="post">
+    <input type="text" name="my-name" />
+    <button type="submit">Submit</button>
+  </form>
+</Layout>
+
+<script>
+  const form = document.querySelector("form");
+
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+
+      for (const [name, value] of formData.entries()) {
+        console.log({ name, value });
+      }
+    });
+  }
+</script>
+
+<style>
+  form {
+    height: 100svh;
+    max-width: 100vw;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+</style>

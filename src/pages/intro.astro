@@ -1,19 +1,105 @@
 ---
+import Layout from "../layouts/Layout.astro";
 ---
-<Layout>
 
-<section>
-  <h1>Hej.</h1>
-  <p>Jag heter Jacob</p>
-</section>
+<Layout title="Intro">
+  <div class="intro" data-scroll-container>
+    <section>
+      <h1>Hej! 👋🏻</h1>
+    </section>
 
-<section>
-  <h1>Intro</h1>
-</section>
+    <section>
+      <h3>Kort om mig</h3>
+      <ul>
+        <li>10+ år erfarenhet av webb. 👴🏻</li>
+        <li>Fuck imposter sydrome: Jag <i>kan</i> CSS, HTML och SVG. OK+ på JS/TS</li>
+        <li>Helt okej när det kommer till design</li>
+        <li>
+          Utöver det så gillar jag musik (helst av typen argt och snabbt) spelandes i allt för dyra
+          headphones (gadgetbudsjett 🤫) samt att med vuxenstövlar vada runt i strömmande vatten för
+          att fiska öring. Inte nödvändigtvis samtidigt.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>Varför ska jag prata om forms?</h3>
+      <ul>
+        <li>En webbens grundstenarna.</li>
+        <li>Sparar tid och pengar, då det ger ett bra utgångspunkt att byggas vidare på</li>
+        <li>Bättre forms, bättre UX.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Så, jag har varit nede i kaninhålet så att ni inte behöver. Nu åker vi!</h3>
+    </section>
+  </div>
+
+  <style>
+    .intro {
+      display: grid;
+      height: 100svh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+    .intro::-webkit-scrollbar {
+      width: 1em;
+    }
+
+    .intro::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .intro::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      outline: 1px solid slategrey;
+    }
+    section {
+      height: inherit;
+      padding: var(--spacing-xl);
+      scroll-snap-align: center;
+      display: grid;
+      align-content: center;
+    }
+  </style>
 </Layout>
 
-<style>
-  section{
-    height: 100svh;
-  }
-</style>
+<script>
+  import { inView, animate, spring, stagger, scroll } from "motion";
+
+  const scrollContainer = document.querySelector("[data-scroll-container]");
+  /* 
+  if (scrollContainer) {
+    animate("section *", {
+      y: 90,
+      opacity: 0,
+      //transform: "rotate(360deg)",
+    });
+    inView(
+      "section",
+      (info) => {
+        console.log("in view", info.target);
+        animate(
+          info.target.querySelectorAll("*"),
+          { opacity: [0, 1], y: [90, 0] },
+          { delay: stagger(0.1), easing: spring(), duration: 0.2 }
+        );
+      },
+      { root: scrollContainer, margin: "30% 10% 30% 10%", amount: "any" }
+    ); 
+    }
+    */
+  /* if (scrollContainer) {
+    scrollContainer.querySelectorAll("section").forEach((section) => {
+      const header = section.querySelector("h1");
+      if (header) {
+        scroll(
+          animate(header, { y: [-400, 400] }), 
+          {
+          //target: header,
+          container: scrollContainer,
+          axis: "y",
+        });
+      }
+    });
+  } */
+</script>

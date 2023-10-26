@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+/**
+ * ! Några av dessa är default på en del input types.
+ * * Exempelvis så får type="tel" alltid inputmode="tel".
+ * * Postkod är ett bra exempel där det är lätt att glömma inputmode
+ */
+// open -a simulator
+---
+
+<Layout title="Autocomplete">
+  <form action="">
+    <h4>Keyboards</h4>
+    <div>
+      <label>Default</label>
+      <input type="text" inputmode="text" />
+    </div>
+    <div>
+      <label>Numerisk</label>
+      <input type="text" inputmode="numeric" />
+    </div>
+    <div>
+      <label for="">Decimal</label>
+      <input type="text" inputmode="decimal" />
+    </div>
+    <div>
+      <label for="">Email*</label>
+      <input type="email" inputmode="email" />
+    </div>
+    <div>
+      <label for="">Telefon*</label>
+      <input type="tel" inputmode="tel" />
+    </div>
+    <div>
+      <label for="">URL*</label>
+      <input type="url" inputmode="url" />
+    </div>
+    <div>
+      <label for="">Search</label>
+      <input type="search" inputmode="search" />
+    </div>
+  </form>
+</Layout>
+<style>
+  form {
+    max-width: 600px;
+    margin-inline: auto;
+    margin-block: 3rem;
+    display: grid;
+    padding: 1rem;
+    gap: var(--spacing-xs);
+  }
+  label {
+    display: block;
+  }
+</style>

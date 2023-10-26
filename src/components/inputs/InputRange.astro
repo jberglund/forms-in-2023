@@ -1,19 +1,49 @@
 ---
-  // oninput
-  // stepUp är * argument
-  // är output live-aria?
-  // name="amount" är scopat till formen den ligger i.
-  // valueAsNumber
+
 ---
-<fieldset 
-    oninput="result.value=amount.valueAsNumber"
-    onclick="result.value=amount.valueAsNumber"
-  >
-  <legend>Amount</legend>
-    <input  value="50"  name="amount" type="range" step="1" min="0" max="100">
-    <button type="button" onclick="amount.stepDown()" > -1 </button>
-    <button type="button" onclick="amount.stepUp()"> +1 </button>
-    <button type="button" onclick="amount.stepDown(10)" > -10 </button>
-    <button type="button" onclick="amount.stepUp(10)"> +10 </button>
+
+<fieldset id="input-range-example">
+  <legend>Range</legend>
+  <div class="button-row">
     <output for="amount" name="result">50</output>
+    <input value="50" name="amount" id="amount" type="range" step="1" min="0" max="100" />
+    <div class="button-row">
+      <button type="button" value="-1">-1</button>
+      <button type="button" value="1">+1</button>
+      <button type="button" value="-10">-10</button>
+      <button type="button" value="10">+10</button>
+    </div>
+  </div>
 </fieldset>
+
+<script is:inline>
+const fieldset = document.querySelector("fieldset#input-range-example");
+const input = fieldset.querySelector('input[type="range"]');
+const output = fieldset.querySelector("output");
+const buttons = fieldset.querySelectorAll("button");
+
+buttons.forEach((b) =>
+  b.addEventListener("click", (event) => amount.stepUp(parseInt(event.target.value))),
+);
+
+fieldset.addEventListener("input", () => (output.value = input.valueAsNumber));
+
+fieldset.addEventListener("click", () => (output.value = input.valueAsNumber));
+</script>
+
+<style>
+  .row {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .button-row {
+    display: flex;
+    gap: var(--spacing-s);
+    align-items: center;
+  }
+  output {
+    font-size: 2rem;
+    width: 5ch;
+    text-align: center;
+  }
+</style>
