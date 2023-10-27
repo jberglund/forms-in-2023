@@ -17,16 +17,17 @@ import Layout from "../../layouts/Layout.astro";
     <fieldset class="stack">
       <div class="stack">
         <label for="user">
-          <small>User</small>
+          <small>User - 3</small>
         </label>
         <input
           placeholder=""
           autofocus
+          autocomplete="off"
           id="user"
           name="user"
           type="text"
           minlength="3"
-          maxlength="16"
+          maxlength="8"
           required
         />
       </div>
@@ -35,10 +36,19 @@ import Layout from "../../layouts/Layout.astro";
         <label for="pin">
           <small>PIN - exakt 4 siffor</small>
         </label>
-        <input placeholder="" id="pin" name="pin" type="password" pattern="[0-9]{4}" required />
+        <input
+          placeholder=""
+          autocomplete="off"
+          id="pin"
+          name="pin"
+          type="password"
+          pattern="[0-9]{4}"
+          required
+        />
       </div>
     </fieldset>
-    <fieldset>
+
+    <!-- <fieldset>
       <label for="dinoselect">Choose a dinosaur:</label>
       <select id="dinoselect">
         <optgroup label="Theropods">
@@ -52,10 +62,11 @@ import Layout from "../../layouts/Layout.astro";
           <option>Apatosaurus</option>
         </optgroup>
       </select>
-    </fieldset>
+    </fieldset> -->
 
-    <InputDate />
-    <InputRange />
+    <!-- <InputDate /> -->
+    <!-- <InputRange /> -->
+
     <div class="button-row">
       <button type="submit">Go!</button>
       <button type="reset">Reset</button>

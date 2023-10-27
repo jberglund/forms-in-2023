@@ -6,27 +6,38 @@ import Layout from "../layouts/Layout.astro";
   <div class="intro" data-scroll-container>
     <section>
       <h1>Hej! 👋🏻</h1>
+      <h6>Jag heter Jacob</h6>
     </section>
 
     <section>
-      <h3>Kort om mig</h3>
+      <h3>Vem är jag?</h3>
       <ul>
         <li>10+ år erfarenhet av webb. 👴🏻</li>
-        <li>Fuck imposter sydrome: Jag <i>kan</i> CSS, HTML och SVG. OK+ på JS/TS</li>
-        <li>Helt okej när det kommer till design</li>
+        <li>
+          Jag <i>kan</i> CSS, HTML och SVG.
+        </li>
+        <li>OK+ på JS/TS.</li>
+        <li>...men har fortfarande massor att lära 🚧</li>
         <li>
           Utöver det så gillar jag musik (helst av typen argt och snabbt) spelandes i allt för dyra
           headphones (gadgetbudsjett 🤫) samt att med vuxenstövlar vada runt i strömmande vatten för
           att fiska öring. Inte nödvändigtvis samtidigt.
         </li>
+        <li>Rocket League. 🚗💨</li>
       </ul>
     </section>
     <section>
       <h3>Varför ska jag prata om forms?</h3>
       <ul>
-        <li>En webbens grundstenarna.</li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#browser_compatibility"
+            >En webbens grundstenarna</a
+          >. Den tidigaste formen för interaktivitet egentligen
+        </li>
         <li>Sparar tid och pengar, då det ger ett bra utgångspunkt att byggas vidare på</li>
         <li>Bättre forms, bättre UX.</li>
+        <li>Nyare teknologier gör att vi har kommit full circle: forms är kult igen.</li>
       </ul>
     </section>
     <section>
@@ -62,44 +73,3 @@ import Layout from "../layouts/Layout.astro";
     }
   </style>
 </Layout>
-
-<script>
-  import { inView, animate, spring, stagger, scroll } from "motion";
-
-  const scrollContainer = document.querySelector("[data-scroll-container]");
-  /* 
-  if (scrollContainer) {
-    animate("section *", {
-      y: 90,
-      opacity: 0,
-      //transform: "rotate(360deg)",
-    });
-    inView(
-      "section",
-      (info) => {
-        console.log("in view", info.target);
-        animate(
-          info.target.querySelectorAll("*"),
-          { opacity: [0, 1], y: [90, 0] },
-          { delay: stagger(0.1), easing: spring(), duration: 0.2 }
-        );
-      },
-      { root: scrollContainer, margin: "30% 10% 30% 10%", amount: "any" }
-    ); 
-    }
-    */
-  /* if (scrollContainer) {
-    scrollContainer.querySelectorAll("section").forEach((section) => {
-      const header = section.querySelector("h1");
-      if (header) {
-        scroll(
-          animate(header, { y: [-400, 400] }), 
-          {
-          //target: header,
-          container: scrollContainer,
-          axis: "y",
-        });
-      }
-    });
-  } */
-</script>

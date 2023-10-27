@@ -6,12 +6,15 @@
   <legend>Range</legend>
   <div class="button-row">
     <output for="amount" name="result">50</output>
-    <input value="50" name="amount" id="amount" type="range" step="1" min="0" max="100" />
-    <div class="button-row">
-      <button type="button" value="-1">-1</button>
-      <button type="button" value="1">+1</button>
-      <button type="button" value="-10">-10</button>
-      <button type="button" value="10">+10</button>
+
+    <div class="stack grow">
+      <input value="50" name="amount" id="amount" type="range" step="1" min="0" max="100" />
+      <div class="button-row">
+        <button type="button" value="-1">-1</button>
+        <button type="button" value="1">+1</button>
+        <button type="button" value="-10">-10</button>
+        <button type="button" value="10">+10</button>
+      </div>
     </div>
   </div>
 </fieldset>
@@ -45,5 +48,8 @@ fieldset.addEventListener("click", () => (output.value = input.valueAsNumber));
     font-size: 2rem;
     width: 5ch;
     text-align: center;
+  }
+  input[type="range"] {
+    flex-grow: 1;
   }
 </style>

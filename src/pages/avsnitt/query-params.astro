@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const search = Astro.url.searchParams.get("q")! || "";
+const attributes = [
+  "autofocus",
+  "required",
+  "step",
+  "min",
+  "max",
+  "value",
+  "pattern",
+  "autocomplete",
+  "name",
+  "type",
+];
+const results = attributes.filter((a) => a.includes(search));
+
+/**
+ * * Notera att formen har ingen action eller method.
+ * * Pro tip: input type='search' är det enda elemetet som har en egen dedikerad reset knapp!
+ * * SearchParams är bra verktyg för att kontrollera state på inne på en specifik URL
+ */
+---
+
+<Layout title="Search">
+  <search class="the-great-centerererer">
+    <ul>
+      {results.map((result) => <li>{result}</li>)}
+    </ul>
+    <form class="button-row">
+      <label for="search">Filtrera på</label>
+      <input type="search" autofocus id="search" name="q" value={search} />
+      <button type="submit">Go!</button>
+    </form>
+  </search>
+</Layout>
+
+<style>
+  .the-great-centerererer {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    background-color: #8bc6ec;
+    background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  }
+</style>

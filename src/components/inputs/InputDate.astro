@@ -1,10 +1,10 @@
 ---
 /**
- * * Wut! name="date" blir tillgängligt som variabel, scopat till formen den finns i
  * * input med type="date" förväntar
  * * step är lite olikt beroende på type time och date
  * * men min och max kan fortfarande vara daton.
  * * Protip: valueAsDate istället för strängar 👌🏻
+ * * Wut! name="date" blir tillgängligt som variabel, scopat till formen den finns i
  */
 ---
 
@@ -14,18 +14,19 @@
     <small>Date</small>
   </label>
   <div class="button-row">
+    <!-- <input name="date" id="datepicker" step="7" type="date" /> -->
     <input name="date" id="datepicker" step="7" type="date" />
-
     <div class="button-row">
-      <!-- <button type="button" onclick="date.valueAsDate = new Date()">Idag</button> -->
       <button type="button" onclick="date.stepDown()">- 1 d</button>
       <button type="button" onclick="date.stepUp()">+ 1 d</button>
-      <!-- <button type="button" onclick="date.stepDown(7)">- 1 w</button>
+      <!-- <button type="button" onclick="date.valueAsDate = new Date()">Idag</button> -->
+      <!-- <button type="button" onclick="date.stepDown(7)">- 1 w</button> 
       <button type="button" onclick="date.stepUp(7)">+ 1 w</button> -->
     </div>
   </div>
 </fieldset>
-<fieldset>
+
+<!-- <fieldset>
   <legend>Datetime <small>caveats iOS 👎</small></legend>
   <input id="subset-timelist" type="time" min="12:00" max="14:00" list="popularHours" />
   <datalist id="popularHours">
@@ -45,7 +46,7 @@
     min="2018-06-07T00:00"
     max="2018-06-14T00:00"
   />
-</fieldset>
+</fieldset> -->
 
 <script is:inline>
 /* const current = new Date();

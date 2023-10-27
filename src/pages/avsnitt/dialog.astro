@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 /**
- * * Notera att första input får autofokus!
+ * * Notera att första input får autofokus, utan attributen autofocus
  * * och att cancel inte har någon event
  */
 ---
@@ -39,6 +39,15 @@ import Layout from "../../layouts/Layout.astro";
   </div>
 </Layout>
 
+<script is:inline>
+const openButton = document.querySelector("#open");
+const dialog = document.querySelector("dialog");
+
+openButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+</script>
+
 <style>
   .the-great-button-centerererer {
     display: grid;
@@ -55,11 +64,3 @@ import Layout from "../../layouts/Layout.astro";
     opacity: 0.5;
   }
 </style>
-<script is:inline>
-const openButton = document.querySelector("#open");
-const dialog = document.querySelector("dialog");
-
-openButton.addEventListener("click", () => {
-  dialog.showModal();
-});
-</script>
